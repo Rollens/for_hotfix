@@ -1,0 +1,12 @@
+*XD
+*FT
+dict
+build
+*.csv
+*.spec
+dist
+Upload
+__pycache__
+*.exe
+*.png
+*.jpg
