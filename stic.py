@@ -120,6 +120,13 @@ class YieldStatistic:
                 del valueTable
 
     def checkTime(self,row):
+        row = [x for x in row if x]#去掉所有的低能空格
+        try:
+            outTime = datetime.timestamp(datetime.strptime(row[1],self.TimeFormatChecker(row[1])))
+        except:
+            print('時間格式不在列表內,請找Rollens\t 格式:{}'.format(row[1]))
+            exit()
+        """
         if len(row) > 2:
             try:
                 outTime = datetime.timestamp(datetime.strptime(row[2],self.TimeFormatChecker(row[2])))
@@ -133,7 +140,7 @@ class YieldStatistic:
                 print('時間格式不在列表內,請找Rollens\t 格式:{}'.format(row[1]))
                 exit()
         else:
-            raise BaseException('時間格式標新立異,直接找Rollens')
+            raise BaseException('時間格式標新立異,直接找Rollens')"""
         return outTime,False
 
     def BigFormCheck(self,WaferID,TotalChip,TotalYield,TotalTime,AverageCycleTime,sepYield,sepRSD)->list:
